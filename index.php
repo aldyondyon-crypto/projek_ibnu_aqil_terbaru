@@ -26,6 +26,7 @@
                         <li><a href="visi-misi.php">Visi & Misi</a></li>
                     </ul>
                 </li>
+                <li><a href="berita.php">Berita</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Kegiatan ▾</a>
                     <ul class="dropdown-content">

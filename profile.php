@@ -15,6 +15,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
+                <img src="Screenshot_2026-02-22-13-16-05-58_1c337646f29875672b5a61192b9010f9.png"
+                    alt="Logo SMP IBNU AQIL" class="logo-img">
                 SMP IBNU AQIL
             </div>
             <ul class="nav-menu" id="navMenu">
@@ -26,6 +28,7 @@
                         <li><a href="visi-misi.php">Visi & Misi</a></li>
                     </ul>
                 </li>
+                <li><a href="berita.php">Berita</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Kegiatan ▾</a>
                     <ul class="dropdown-content">
@@ -58,7 +61,7 @@
             <div class="profile-grid">
                 <div class="profile-item">
                     <h4>Nama Sekolah</h4>
-                    <p>SMK IBNU AQIL</p>
+                    <p>SMP IBNU AQIL</p>
                 </div>
                 <div class="profile-item">
                     <h4>NPSN</h4>

@@ -31,6 +31,7 @@
                         <li><a href="ekskul.php">Ekstrakulikuler</a></li>
                     </ul>
                 </li>
+                <li><a href="berita.php">Berita</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn active">Hubungi ▾</a>
                     <ul class="dropdown-content">

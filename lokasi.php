@@ -13,6 +13,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
+                <img src="Screenshot_2026-02-22-13-16-05-58_1c337646f29875672b5a61192b9010f9.png"
+                    alt="Logo SMP IBNU AQIL" class="logo-img">
                 SMP IBNU AQIL
             </div>
             <ul class="nav-menu" id="navMenu">
@@ -31,6 +33,7 @@
                         <li><a href="ekskul.php">Ekstrakulikuler</a></li>
                     </ul>
                 </li>
+                <li><a href="berita.php">Berita</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn active">Hubungi ▾</a>
                     <ul class="dropdown-content">
@@ -55,9 +58,9 @@
         <div class="profile-container">
             <h3 style="color: var(--dark-green); margin-bottom: 1rem;">Alamat Lengkap</h3>
             <p style="line-height: 1.8; color: var(--text-gray); font-size: 1.1rem;">
-                Jl. Pendidikan No. 123, Kelurahan Sejahtera<br>
-                Kecamatan Maju, Kota Prestasi<br>
-                Provinsi Harapan 12345<br>
+                Jl. Raya Laladon No.256, Laladon<br>
+                Kec. Ciomas, Kabupaten Bogor<br>
+                Provinsi Jawa Barat 16610<br>
                 Indonesia
             </p>
 

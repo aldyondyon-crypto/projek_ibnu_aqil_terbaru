@@ -4,6 +4,10 @@ if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
 }
+// Prevent browser caching
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -21,13 +25,14 @@ if (!isset($_SESSION['username'])) {
     <nav class="dashboard-navbar">
         <div class="nav-container">
             <div class="logo">
-                🎓 ADMIN PANEL
+                <img src="Screenshot_2026-02-22-13-16-05-58_1c337646f29875672b5a61192b9010f9.png" alt="Logo"
+                    class="logo-img">
+                ADMIN PANEL
             </div>
             <div class="user-menu">
                 <span class="user-name" id="userName"><?php echo htmlspecialchars($_SESSION['username']); ?></span>
                 <span class="user-role admin">Admin</span>
-                <button onclick="if(confirm('Apakah Anda yakin ingin logout?')) window.location.href='logout.php'"
-                    class="logout-btn">Logout</button>
+                <button onclick="window.location.href='menanyakan logout.php'" class="logout-btn">Logout</button>
             </div>
         </div>
     </nav>

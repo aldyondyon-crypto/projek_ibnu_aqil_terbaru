@@ -21,7 +21,7 @@ if (isset($_POST['login'])) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['username'] = $row['Username'];
         $_SESSION['role'] = 'super_admin'; // Default role
-        
+
         header("Location: dashboard-superadmin.php");
         exit();
     } else {
@@ -62,8 +62,9 @@ if (isset($_POST['login'])) {
             margin-bottom: 2rem;
         }
 
-        .login-header .logo-icon {
-            font-size: 4rem;
+        .login-header .logo-img-login {
+            height: 100px;
+            width: auto;
             margin-bottom: 1rem;
         }
 
@@ -102,8 +103,8 @@ if (isset($_POST['login'])) {
 
         .form-control:focus {
             outline: none;
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
         .form-control.error {
@@ -120,13 +121,17 @@ if (isset($_POST['login'])) {
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
-            font-size: 1.2rem;
-            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1f2937;
             user-select: none;
+            height: 24px;
+            width: 24px;
         }
 
         .toggle-password:hover {
-            color: var(--primary-green);
+            color: #3b82f6;
         }
 
         .remember-forgot {
@@ -250,30 +255,40 @@ if (isset($_POST['login'])) {
     <div class="login-container">
         <div class="login-box">
             <div class="login-header">
-                <div class="logo-icon">🎓</div>
-                <h2>Sekolah Kita</h2>
+                <img src="Screenshot_2026-02-22-13-16-05-58_1c337646f29875672b5a61192b9010f9.png"
+                    alt="Logo SMP Ibnu Aqil" class="logo-img-login">
+                <h2>SMP IBNU AQIL</h2>
                 <p>Silakan login untuk mengakses dashboard</p>
             </div>
 
             <?php if ($error): ?>
-            <div class="alert error show">
-                <?php echo $error; ?>
-            </div>
+                <div class="alert error show">
+                    <?php echo $error; ?>
+                </div>
             <?php endif; ?>
 
             <form method="POST" action="">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Masukkan username" required
-                        autocomplete="username">
+                    <input type="text" id="username" name="username" class="form-control"
+                        placeholder="Masukkan username" required autocomplete="off">
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
                     <div class="password-wrapper">
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan password"
-                            required autocomplete="current-password">
-                        <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                        <input type="password" id="password" name="password" class="form-control"
+                            placeholder="Masukkan password" required autocomplete="off" style="padding-right: 3rem;">
+                        <span class="toggle-password" id="togglePassword" onclick="togglePassword()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                </path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </span>
                     </div>
                 </div>
 
@@ -282,7 +297,8 @@ if (isset($_POST['login'])) {
                         <input type="checkbox" id="rememberMe" name="remember">
                         <span>Ingat saya</span>
                     </label>
-                    <a href="#" class="forgot-password" onclick="alert('Silakan hubungi administrator sekolah.'); return false;">Lupa password?</a>
+                    <a href="#" class="forgot-password"
+                        onclick="alert('Silakan hubungi administrator sekolah.'); return false;">Lupa password?</a>
                 </div>
 
                 <button type="submit" name="login" class="login-button">
@@ -302,14 +318,24 @@ if (isset($_POST['login'])) {
     <script>
         function togglePassword() {
             const passwordField = document.getElementById('password');
-            const toggleIcon = document.querySelector('.toggle-password');
-            
+            const toggleIcon = document.getElementById('togglePassword');
+
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';
-                toggleIcon.textContent = '🙈';
+                toggleIcon.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                `;
             } else {
                 passwordField.type = 'password';
-                toggleIcon.textContent = '👁️';
+                toggleIcon.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
+                `;
             }
         }
     </script>

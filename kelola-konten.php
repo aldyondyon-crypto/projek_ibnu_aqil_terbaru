@@ -1,5 +1,17 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+// Prevent browser caching
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +35,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand {
@@ -32,6 +44,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
         }
 
         .navbar-user {
@@ -74,7 +92,7 @@
         .sidebar {
             width: 250px;
             background: white;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
         }
 
         .sidebar-item {
@@ -133,13 +151,13 @@
             background: white;
             border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             transition: all 0.3s;
         }
 
         .content-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
         }
 
         .card-icon {
@@ -185,7 +203,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -381,40 +399,43 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="navbar-brand">
-            🎓 SUPER ADMIN PANEL
+            <img src="Screenshot_2026-02-22-13-16-05-58_1c337646f29875672b5a61192b9010f9.png" alt="Logo"
+                class="logo-img">
+            SUPER ADMIN PANEL
         </div>
         <div class="navbar-user">
             <span>Super Administrator</span>
             <span class="badge" id="adminName">Loading...</span>
-            <button class="logout-btn" onclick="logout()">Logout</button>
+            <button class="logout-btn" onclick="window.location.href='menanyakan logout.php'">Logout</button>
         </div>
     </nav>
 
     <div class="container">
         <aside class="sidebar">
             <div class="sidebar-item">
-                <span>📊</span> Overview
+                <span></span> Overview
             </div>
             <div class="sidebar-item">
-                <span>👥</span> Kelola User
+                <span></span> Kelola User
             </div>
             <div class="sidebar-item active">
-                <span>📝</span> Kelola Konten
+                <span></span> Kelola Konten
             </div>
             <div class="sidebar-item">
-                <span>⚙️</span> Pengaturan
+                <span></span> Pengaturan
             </div>
             <div class="sidebar-item">
-                <span>📋</span> Activity Logs
+                <span></span> Activity Logs
             </div>
             <div class="sidebar-item">
-                <span>💾</span> Backup & Restore
+                <span></span> Backup & Restore
             </div>
             <div class="sidebar-item">
-                <span>🌐</span> Lihat Website
+                <span></span> Lihat Website
             </div>
         </aside>
 
@@ -426,42 +447,42 @@
 
             <div class="card-grid">
                 <div class="content-card">
-                    <div class="card-icon">🏫</div>
+                    <div class="card-icon"></div>
                     <div class="card-title">Profil Sekolah</div>
                     <div class="card-desc">Edit informasi profil sekolah</div>
                     <button class="edit-btn" onclick="openProfilModal()">Edit</button>
                 </div>
 
                 <div class="content-card">
-                    <div class="card-icon">🎯</div>
+                    <div class="card-icon"></div>
                     <div class="card-title">Visi & Misi</div>
                     <div class="card-desc">Edit visi dan misi sekolah</div>
                     <button class="edit-btn" onclick="openVisiMisiModal()">Edit</button>
                 </div>
 
                 <div class="content-card">
-                    <div class="card-icon">🏢</div>
+                    <div class="card-icon"></div>
                     <div class="card-title">Fasilitas</div>
                     <div class="card-desc">Kelola fasilitas sekolah</div>
                     <button class="edit-btn" onclick="openFasilitasModal()">Edit</button>
                 </div>
 
                 <div class="content-card">
-                    <div class="card-icon">⚽</div>
+                    <div class="card-icon"></div>
                     <div class="card-title">Ekstrakurikuler</div>
                     <div class="card-desc">Kelola ekstrakurikuler</div>
                     <button class="edit-btn" onclick="openEkskulModal()">Edit</button>
                 </div>
 
                 <div class="content-card">
-                    <div class="card-icon">📍</div>
+                    <div class="card-icon"></div>
                     <div class="card-title">Lokasi</div>
                     <div class="card-desc">Edit alamat dan peta</div>
                     <button class="edit-btn" onclick="openLokasiModal()">Edit</button>
                 </div>
 
                 <div class="content-card">
-                    <div class="card-icon">📞</div>
+                    <div class="card-icon"></div>
                     <div class="card-title">Kontak</div>
                     <div class="card-desc">Edit informasi kontak</div>
                     <button class="edit-btn" onclick="openKontakModal()">Edit</button>
@@ -484,12 +505,16 @@
                     <input type="text" class="form-input" name="nama_sekolah" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Deskripsi</label>
-                    <textarea class="form-textarea" name="deskripsi" required></textarea>
+                    <label class="form-label">Tentang Kami</label>
+                    <textarea class="form-textarea" name="deskripsi" required style="min-height: 120px;"></textarea>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Sejarah</label>
                     <textarea class="form-textarea" name="sejarah" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tahun Berdiri</label>
+                    <input type="text" class="form-input" name="tahun_berdiri" placeholder="Contoh: 1992" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Akreditasi</label>
@@ -582,10 +607,6 @@
                     <textarea class="form-textarea" name="deskripsi" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Icon (emoji)</label>
-                    <input type="text" class="form-input" name="icon" placeholder="contoh: 💻">
-                </div>
-                <div class="form-group">
                     <label class="form-label">Urutan</label>
                     <input type="number" class="form-input" name="urutan" value="0">
                 </div>
@@ -597,7 +618,8 @@
                     </select>
                 </div>
                 <div class="btn-group">
-                    <button type="button" class="btn-secondary" onclick="closeModal('modalFormFasilitas')">Batal</button>
+                    <button type="button" class="btn-secondary"
+                        onclick="closeModal('modalFormFasilitas')">Batal</button>
                     <button type="submit" class="btn-primary">Simpan</button>
                 </div>
             </form>
@@ -641,10 +663,6 @@
                 <div class="form-group">
                     <label class="form-label">Jadwal</label>
                     <input type="text" class="form-input" name="jadwal" placeholder="contoh: Senin, 14:00-16:00">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Icon (emoji)</label>
-                    <input type="text" class="form-input" name="icon" placeholder="contoh: ⚽">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Status</label>
@@ -765,4 +783,5 @@
 
     <script src="kelola-konten.js"></script>
 </body>
+
 </html>
