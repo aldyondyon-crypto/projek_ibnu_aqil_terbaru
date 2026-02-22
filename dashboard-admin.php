@@ -11,7 +11,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin - Website Sekolah</title>
+    <title>Dashboard Admin - SMP IBNU AQIL</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard-style.css">
 </head>
